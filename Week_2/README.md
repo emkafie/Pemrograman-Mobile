@@ -1,3 +1,7 @@
+-- Soal 1 --
+
+    Kode tersebut melakukan perulangan sebanyak 10 kali (i dari 0 sampai 9). Pada setiap iterasi, program mencetak kalimat: "Nama saya adalah Farrel, sekarang berumur X tahun", di mana X dimulai dari 20 dan berkurang 1 setiap iterasi (20, 19, 18, ..., 11). Jadi, output menunjukkan nama dan umur yang menurun dari 20 hingga 11.
+
 -- Soal 2 --
 
 Karena Flutter dibangun dengan menggunakan bahasa Dart. Semua logika aplikasi dan UI di Flutter ditulis dengan Dart. Akan lebih memudahkan dalam mencari dan memperbaiki error (debugging).
