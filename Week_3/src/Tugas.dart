@@ -3,9 +3,10 @@ void main() {
   String nim = "2341720176";
 
   for (int i = 0; i <= 201; i++) {
-    print(i);
     if (isPrime(i)) {
       print("$i adalah bilangan prima - $nama - $nim");
+    } else {
+      print(i);
     }
   }
 }
