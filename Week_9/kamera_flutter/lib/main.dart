@@ -1,28 +1,77 @@
+// lib/main.dart (LENGKAP)
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-// Import file TakePictureScreen yang akan kita buat
-import 'widgets/take_picture_screen.dart'; 
+import 'widgets/filter_carousel.dart';
+import 'widgets/take_picture_screen.dart';
 
-// Langkah 3: Mengubah main() menjadi async dan mengambil list kamera
 Future<void> main() async {
-  // Pastikan plugin terinisialisasi
   WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
+}
 
-  // Ambil daftar kamera yang tersedia
-  final cameras = await availableCameras();
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  // Ambil kamera pertama dari daftar (biasanya kamera belakang)
-  final firstCamera = cameras.first;
-
-  // Langkah 8: Menjalankan aplikasi
-  runApp(
-    MaterialApp(
-      theme: ThemeData.dark(),
-      home: TakePictureScreen(
-        // Teruskan kamera yang didapat ke widget TakePictureScreen
-        camera: firstCamera,
-      ),
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-    ),
-  );
+      theme: ThemeData.dark(),
+      home: const HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool _loading = false;
+
+  Future<void> _openCamera() async {
+    setState(() => _loading = true);
+    try {
+      final cameras = await availableCameras();
+      if (!mounted) return;
+      await Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => TakePictureScreen(cameras: cameras),
+        ),
+      );
+    } catch (e) {
+      // ignore: avoid_print
+      print('Error initializing cameras: $e');
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Gagal mengakses kamera: $e')));
+    } finally {
+      if (mounted) setState(() => _loading = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Camera / Carousel')),
+      body: Center(
+        child: _loading
+            ? const CircularProgressIndicator()
+            : Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: _openCamera,
+                    icon: const Icon(Icons.camera_alt),
+                    label: const Text('Open Camera'),
+                  ),
+                ],
+              ),
+      ),
+    );
+  }
 }
