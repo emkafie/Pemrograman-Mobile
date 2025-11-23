@@ -25,6 +25,7 @@ Masukkan hasil capture layar ke laporan praktikum Anda.
 **Soal 3**
 
 Masukkan hasil capture layar ke laporan praktikum Anda.
+
 ![img](/img/W13_2.png)
 ![img](/img/W13_3.png)
 
@@ -32,6 +33,7 @@ Masukkan hasil capture layar ke laporan praktikum Anda.
 **Soal 4**
 
 Capture hasil running aplikasi Anda, kemudian impor ke laporan praktikum Anda!
+
 ![img](/img/W13_4.png)
 ![img](/img/W13_5.png)
 
@@ -45,18 +47,21 @@ Mencegah Typo (Kesalahan Ketik) - Safety: Jika kita mengetik manual 'pizzaName' 
 Kemudahan Refactoring (Perubahan) - Maintainability: Tanpa konstanta, kita harus mencari dan mengganti ("Find and Replace") teks 'pizzaName' di seluruh file satu per satu, yang berisiko ada yang terlewat. Dengan konstanta, kita cukup mengganti nilai di satu tempat saja: const String keyName = 'name'; Maka seluruh bagian kode yang menggunakan keyName akan otomatis menggunakan nilai baru tersebut.
 
 Capture hasil praktikum Anda dan lampirkan di README.
+
 ![img](/img/W13_6.png)
 
 ## Praktikum 4
 **Soal 6**
 
 Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+
 ![img](/img/W13-8.gif)
 
 ## Praktikum 5
 **Soal 7**
 
 Capture hasil praktikum Anda dan lampirkan di README.
+
 ![img](/img/W13_9.png)
 
 ## Praktikum 6
@@ -75,8 +80,10 @@ myFile.readAsString() akan membaca isi file yang sebelumnya ditulis (pada langka
 Setelah data berhasil dibaca, setState dipanggil untuk memperbarui variabel fileText.
 
 Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+
 ![img](/img/W13-10.gif)
 
 ## Praktikum 7
 **Soal 9**
+
 ![img](/img/W13-11.gif)
